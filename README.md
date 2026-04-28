@@ -2,14 +2,14 @@
 
 A mobile-first, browser-based tool to bypass signature verification and unlock the bootloader of Unisoc (Spreadtrum) devices. No PC, no Root, just pure WebUSB power.
 
-## 🌟 Features
+## 🌟 Features:
 - **No PC Required**: Works entirely in your Android Chrome browser.
 - **Hybrid Protocol**: Supports latest security patches (including v1964/2025) by using older Stock FDLs.
-- **Universal Support**: Compatible with UFS 2.2 and eMMC storage (T606, T612, ums9230, etc.).
+- **Universal Support**: Compatible with UFS 2.2+ and eMMC 5.1 storage chip And other unisoc cpu (T606, T612 , etc.).
 
 ---
 
-## 🛠️ Requirements
+## 🛠️ Requirements:
 1. **Host Phone**: Android device with Chrome browser.
 2. **OTG Adapter**: To connect the Host to the Target phone.
 3. **Chrome Configuration**:
@@ -20,16 +20,16 @@ A mobile-first, browser-based tool to bypass signature verification and unlock t
 
 ---
 
-## 📂 Preparation
+## 📂 Preparation:
 To use this tool, you need three binary files:
 1. **Stock FDL1**: Extract from your phone's official firmware (.pac file).
-2. **Signature Bypass (Included)**: Download the `universal_bypass.bin` from this repository.
+2. **Signature Bypass (Included)**: Download the `universal_bypass_ufs.bin (for ufs devices) or universal_bypass_emmc (for emmc devices)` from this repository.
 3. **Stock FDL2**: Extract from your phone's official firmware (ensure it matches your storage type: UFS or eMMC).
 
 ---
 
-## ⚡ How to Use (The Gar Protocol)
-1. Open the [Gar-Unlocker Link](https://YOUR-USERNAME.github.io/Universal-Unisoc-Bootloader-Unlock/).
+## ⚡ How to Use:
+1. Open the [UnisocBootloaderUnlocker Link](https://carltweaks.github.io/Universal-Unisoc-Bootloader-Unlock/).
 2. Select your **Stock FDL1**, the **Bypass Bin**, and your **Stock FDL2**.
 3. Click **"EXECUTE HANDSHAKE"**.
 4. **Target Phone Action**:
