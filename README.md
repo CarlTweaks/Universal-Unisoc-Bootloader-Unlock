@@ -23,7 +23,7 @@ A mobile-first, browser-based tool to bypass signature verification and unlock t
 ## 📂 Preparation:
 To use this tool, you need three binary files:
 1. **Stock FDL1**: Extract from your phone's official firmware (.pac file).
-2. **Signature Bypass (Included)**: Download the `universal_bypass_ufs.bin (for ufs devices) or universal_bypass_emmc (for emmc devices)` from this repository.
+2. **Signature Bypass (Included)**: Download the `universal_bypass_ufs.bin (for ufs devices) or universal_bypass_emmc.bin (for emmc devices)` from this repository.
 3. **Stock FDL2**: Extract from your phone's official firmware (ensure it matches your storage type: UFS or eMMC).
 
 ---
