@@ -48,3 +48,10 @@ To use this tool, you need three binary files:
 - **Exploit & Payload**: TomKing062
 - **Logic & Implementation**: (CarlTweaks)
 - **Web Interface**: Based on WebUSB API
+
+**Found a bug?** 🐛
+If the tool doesn't work for your device, please open an [Issue here](https://github.com/CarlTweaks/Universal-Unisoc-Bootloader-Unlock/issues) and provide:
+* Your Device Model
+* Chipset (e.g., T606)
+* Firmware Version
+* Error Log from the screen
