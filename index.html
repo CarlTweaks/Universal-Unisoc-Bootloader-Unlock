@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gar-Unlocker Hybrid Bypass</title>
+    <style>
+        body { background: #000; color: #0f0; font-family: monospace; padding: 20px; text-shadow: 0 0 5px #0f0; }
+        .panel { border: 2px solid #0f0; padding: 15px; background: #050505; box-shadow: 0 0 15px #0f0; }
+        input { display: block; margin: 10px 0; color: #0f0; font-size: 14px; }
+        button { background: #0f0; color: #000; border: none; padding: 15px; width: 100%; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        #log { background: #000; border: 1px solid #333; height: 250px; overflow-y: auto; margin-top: 20px; padding: 10px; font-size: 12px; }
+        .warn { color: #f00; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <h2>⚡ HYBRID BYPASS PROTOCOL ⚡</h2>
+        <p class="warn">Target: Smart 8 UFS 2.2 (v1964 Patch)</p>
+        
+        <label>1. Stock FDL1 (2023 Version):</label>
+        <input type="file" id="f1">
+        
+        <label>2. TomKing Exec (no_verify):</label>
+        <input type="file" id="ex">
+        
+        <label>3. Stock FDL2 (UFS - 2023 Version):</label>
+        <input type="file" id="f2">
+
+        <button id="go">EXECUTE HANDSHAKE</button>
+    </div>
+    <div id="log">READY. Waiting for handshake...</div>
+
+    <script>
+        const logger = (m) => { document.getElementById('log').innerHTML += `> ${m}<br>`; document.getElementById('log').scrollTop = 9999; };
+
+        document.getElementById('go').onclick = async () => {
+            try {
+                const device = await navigator.usb.requestDevice({ filters: [] });
+                await device.open();
+                await device.selectConfiguration(1);
+                await device.claimInterface(0);
+
+                logger("CONNECTED! Initializing Handshake...");
+
+                const file1 = await document.getElementById('f1').files[0].arrayBuffer();
+                const exec = await document.getElementById('ex').files[0].arrayBuffer();
+                const file2 = await document.getElementById('f2').files[0].arrayBuffer();
+
+                logger("Step 1: Injecting Stock FDL1 (0x5500)...");
+                await device.transferOut(1, file1);
+
+                logger("Step 2: Triggering TomKing Signature Bypass...");
+                await device.transferOut(1, exec);
+
+                logger("Step 3: Loading Stock FDL2 (0x9eff0000)...");
+                await device.transferOut(1, file2);
+
+                logger("FINAL: Sending Unlock Command 0x11...");
+                await device.transferOut(1, new Uint8Array([0x11]));
+
+                logger("✅ PROTOCOL COMPLETE. Check Target Device!");
+            } catch (e) {
+                logger("❌ ERROR: " + e);
+            }
+        };
+    </script>
+</body>
+</html>
